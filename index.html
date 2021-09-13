@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bipro Store</title>
+  <title>Inab Store</title>
   <link rel="stylesheet" href="./css/style.css" />
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -30,14 +30,21 @@
     </div>
   </div> -->
   <main class="main">
-    <div class="search-field">
-      <div class="search-box">
+    <h2 class="text-center text-success my-2">Search your favourite product 💳</h2>
+    <div class=" my-3">
+      <!-- <div class="search-box">
         <input id="input-field" class="search-field" type="text" />
         <button type="button" class="btn btn-primary search-button" data-toggle="button" aria-pressed="false"
           autocomplete="off" id="search-btn" onclick="loadProducts()">
           Search
-        </button>
+        </button> -->
+      <div class="input-group mb-3 w-50 mx-auto">
+        <input id="search-field" type="text" class="form-control" placeholder="Search the product you want"
+          aria-label="Recipient's username" aria-describedby="button-addon2">
+        <button onclick="searchFood()" class="btn btn-secondary btn-outline-primary text-black px-5 rounded"
+          type="button" id="button-search">search</button>
       </div>
+    </div>
     </div>
     <!-- show details on top   -->
 
