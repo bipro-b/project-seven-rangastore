@@ -1,5 +1,5 @@
 const loadProducts = () => {
-  const url = `https://fakestoreapi.com/products`;
+  const url = `https://fakestoreapi.com/products`; //https://fakestoreapi.com/products
   fetch(url)
     .then((response) => response.json())
     .then((data) => showProducts(data));
@@ -20,6 +20,7 @@ const showProducts = (products) => {
       </div>
       <h3>${product.title}</h3>
       <p>Category: ${product.category}</p>
+      <h5 class="">Rating: <span class="text-danger">${product.rating.rate}</span> Raters: <span class="text-warning">${product.rating.count}</span></h5>
       <h2>Price: $ ${product.price}</h2>
       <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success">add to cart</button>
       <button id="details-btn" class="btn btn-danger">Details</button></div>
@@ -27,6 +28,48 @@ const showProducts = (products) => {
     document.getElementById("all-products").appendChild(div);
   })
 };
+
+/*
+
+const loadDetails=()=>{
+  const url = `https://fakestoreapi.com/products`; //https://fakestoreapi.com/products
+  fetch(url)
+    .then((response) => response.json())
+    .then((data) => showDetails(data));
+
+}
+
+const showDetails = products =>{
+
+  products.forEach(product=>{
+
+    const image = product.image;  // fixed 
+    const div = document.createElement("div");
+    div.classList.add("product");
+    div.innerHTML = `<div class="single-product">
+      <div>
+    <img class="product-image" src=${image}></img>
+      </div>
+      <h3>${product.title}</h3>
+      <p>Category: ${product.category}</p>
+      <h5 class="">Rating: <span class="text-danger">${product.rating.rate}</span> Raters: <span class="text-warning">${product.rating.count}</span></h5>
+      <h2>Price: $ ${product.price}</h2>
+      <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success">add to cart</button>
+    
+      `;
+
+  });
+
+}
+
+
+
+
+
+
+
+*/
+
 let count = 0;
 const addToCart = (id, price) => {
   count = count + 1;
