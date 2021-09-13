@@ -16,8 +16,10 @@ const showProducts = (products) => {
     div.classList.add("product");
     div.innerHTML = `<div class="single-product">
       <div>
+      <div class=" rounded" style="background-image: linear-gradient(rgb(0, 255, 157),rgb(31, 195, 236));">
     <img class="product-image" src=${image}></img>
-      </div>
+      
+    
       <h3>${product.title}</h3>
       <p>Category: ${product.category}</p>
       <h5 class="">Rating: <span class="text-danger">${product.rating.rate}</span> Raters: <span class="text-warning">${product.rating.count}</span></h5>
@@ -40,24 +42,12 @@ const loadDetails = (id) => {
 }
 
 const showDetails = product => {
-  console.log(product)
+
   const topDetails = document.getElementById('show-details')
   topDetails.textContent = '';
 
   const image = product.image;  // fixed 
   const div = document.createElement("div");
-  div.classList.add("card");
-  /* div.innerHTML = `
-     <img class="product-image" src=${image}></img>
-       </div>
-       <h3>${product.title}</h3>
-       <p>Category: ${product.category}</p>
-       <h5 class="">Rating: <span class="text-danger">${product.rating.rate}</span> Raters: <span class="text-warning">${product.rating.count}</span></h5>
-       <h2>Price: $ ${product.price}</h2>
-      <h4>Desciption: ${product.description} </h4>
-     
-       `;
-   topDetails.appendChild(div);*/
 
   div.innerHTML = `  <div class="row g-0">
     <div class="col-md-2">
