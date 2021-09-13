@@ -37,6 +37,12 @@ body {
   justify-content: center;
 }
 
+.checked{
+  color: orange;
+}
+.star{
+  color: brown;
+}
 
 .single-product {
   
