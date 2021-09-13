@@ -23,53 +23,58 @@ const showProducts = (products) => {
       <h5 class="">Rating: <span class="text-danger">${product.rating.rate}</span> Raters: <span class="text-warning">${product.rating.count}</span></h5>
       <h2>Price: $ ${product.price}</h2>
       <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success">add to cart</button>
-      <button id="details-btn" class="btn btn-danger">Details</button></div>
+      <button onclick="loadDetails(${product.id})" id="details-btn" class="btn btn-danger">Details</button></div>
       `;
     document.getElementById("all-products").appendChild(div);
   })
 };
 
-/*
 
-const loadDetails=()=>{
-  const url = `https://fakestoreapi.com/products`; //https://fakestoreapi.com/products
+
+const loadDetails = (id) => {
+  const url = `https://fakestoreapi.com/products/${id}`; //https://fakestoreapi.com/products
   fetch(url)
     .then((response) => response.json())
     .then((data) => showDetails(data));
 
 }
 
-const showDetails = products =>{
+const showDetails = product => {
+  console.log(product)
+  const topDetails = document.getElementById('show-details')
+  topDetails.textContent = '';
 
-  products.forEach(product=>{
+  const image = product.image;  // fixed 
+  const div = document.createElement("div");
+  div.classList.add("card");
+  /* div.innerHTML = `
+     <img class="product-image" src=${image}></img>
+       </div>
+       <h3>${product.title}</h3>
+       <p>Category: ${product.category}</p>
+       <h5 class="">Rating: <span class="text-danger">${product.rating.rate}</span> Raters: <span class="text-warning">${product.rating.count}</span></h5>
+       <h2>Price: $ ${product.price}</h2>
+      <h4>Desciption: ${product.description} </h4>
+     
+       `;
+   topDetails.appendChild(div);*/
 
-    const image = product.image;  // fixed 
-    const div = document.createElement("div");
-    div.classList.add("product");
-    div.innerHTML = `<div class="single-product">
-      <div>
-    <img class="product-image" src=${image}></img>
+  div.innerHTML = `  <div class="row g-0">
+    <div class="col-md-2">
+      <img src="${image}" class="product-image rounded-start" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">Details</h5>
+         <h3>${product.title}</h3>
+         <p>Category: ${product.category}</p>
+        <p class="card-text">Desciption: ${product.description} </p>
       </div>
-      <h3>${product.title}</h3>
-      <p>Category: ${product.category}</p>
-      <h5 class="">Rating: <span class="text-danger">${product.rating.rate}</span> Raters: <span class="text-warning">${product.rating.count}</span></h5>
-      <h2>Price: $ ${product.price}</h2>
-      <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success">add to cart</button>
-    
-      `;
-
-  });
+    </div>
+  </div>`
+  topDetails.appendChild(div);
 
 }
-
-
-
-
-
-
-
-*/
-
 let count = 0;
 const addToCart = (id, price) => {
   count = count + 1;
