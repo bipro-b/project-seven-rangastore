@@ -49,9 +49,9 @@ const showDetails = product => {
   const image = product.image;  // fixed 
   const div = document.createElement("div");
 
-  div.innerHTML = `  <div class="row g-0">
+  div.innerHTML = `  <div class="row single-product g-0 rounded" style="background-color:lightblue">
     <div class="col-md-2">
-      <img src="${image}" class="product-image rounded-start" alt="...">
+      <img src="${image}" class="product-image rounded" alt="...">
     </div>
     <div class="col-md-8">
       <div class="card-body">
