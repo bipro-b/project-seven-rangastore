@@ -9,7 +9,6 @@ loadProducts();
 // show all product in UI 
 const showProducts = (products) => {
   const allProducts = products.map((pd) => pd);
-  //for (const product of allProducts) 
   allProducts.forEach(product => {
     const image = product.image;  // fixed 
     const div = document.createElement("div");
@@ -34,12 +33,14 @@ const showProducts = (products) => {
 
 
 const loadDetails = (id) => {
-  const url = `https://fakestoreapi.com/products/${id}`; //https://fakestoreapi.com/products
+  const url = `https://fakestoreapi.com/products/${id}`;
   fetch(url)
     .then((response) => response.json())
     .then((data) => showDetails(data));
 
 }
+
+// showing details 
 
 const showDetails = product => {
 
@@ -65,6 +66,9 @@ const showDetails = product => {
   topDetails.appendChild(div);
 
 }
+
+// Price count
+
 let count = 0;
 const addToCart = (id, price) => {
   count = count + 1;
