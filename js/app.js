@@ -16,7 +16,7 @@ const showProducts = (products) => {
     div.innerHTML = `<div class="single-product">
       <div>
       <div class=" rounded" style="background-image: linear-gradient(rgb(0, 255, 157),rgb(31, 195, 236));">
-    <img class="product-image" src=${image}></img>
+    <img class="pt-3 product-image" src=${image}></img>
       
     
       <h3>${product.title}</h3>
